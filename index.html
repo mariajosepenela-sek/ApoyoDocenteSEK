@@ -42,6 +42,40 @@
         .content-box li {
             margin-bottom: 0.75rem;
         }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            opacity: 0;
+            max-height: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease-out;
+        }
+        .checklist-item.visible {
+            opacity: 1;
+            max-height: 100px; /* Adjust as needed */
+            transform: translateY(0);
+        }
+        .checklist-item i {
+            margin-top: 2px;
+        }
+        /* Accordion styles for FAQ */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-left: 1.75rem; /* Align with question text */
+        }
+        .faq-item.open .faq-answer {
+            max-height: 500px; /* Adjust as needed */
+            margin-top: 0.75rem;
+        }
+        .faq-item.open .chevron {
+            transform: rotate(180deg);
+        }
+        .chevron {
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -115,22 +149,22 @@
                 <h2 class="text-xl font-bold text-cyan-600">Ideario y Proyecto Educativo</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                <div>
-                    <h3 class="font-semibold text-cyan-700 mb-2">Principios Fundamentales</h3>
-                    <ul class="list-disc space-y-2">
-                        <li>El alumno es el centro: se respeta su individualidad y se potencia su desarrollo personal.</li>
+                <div class="bg-cyan-50 border-l-4 border-cyan-500 p-4 rounded-r-lg">
+                    <h3 class="font-semibold text-cyan-800 mb-2">Principios Fundamentales</h3>
+                    <ul class="list-disc space-y-2 text-cyan-900">
+                        <li>El alumno es el centro: se respeta su individualidad y se potencia su desarrollo.</li>
                         <li>Educación en y para la libertad, promoviendo responsabilidad individual.</li>
-                        <li>Compromiso con la no discriminación (por nacionalidad, género, raza, ideología o religión).</li>
-                        <li>Promoción de la solidaridad y valoración del trabajo como medio de realización personal.</li>
-                        <li>Apertura a diversas experiencias educativas que contribuyan a estos objetivos.</li>
+                        <li>Compromiso con la no discriminación.</li>
+                        <li>Promoción de la solidaridad y valoración del trabajo.</li>
+                        <li>Apertura a diversas experiencias educativas.</li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="font-semibold text-cyan-700 mb-2">Enfoque Pedagógico: “Las 3 A”</h3>
-                     <ul class="list-disc space-y-2">
-                        <li><strong>Aprender a aprender:</strong> desarrollar habilidades metacognitivas y estratégicas que favorezcan el aprendizaje autónomo futuro.</li>
-                        <li><strong>Aprender a ser:</strong> promover valores esenciales para el siglo XXI (autoestima, reflexión, responsabilidad, solidaridad, respeto y pluralidad).</li>
-                        <li><strong>Aprender a hacer:</strong> aplicar conocimientos de forma práctica, cultivar competencias concretas y fomentar la convivencia mediante trabajo en equipo y valores compartidos.</li>
+                <div class="bg-cyan-50 border-l-4 border-cyan-500 p-4 rounded-r-lg">
+                    <h3 class="font-semibold text-cyan-800 mb-2">Enfoque Pedagógico: “Las 3 A”</h3>
+                     <ul class="list-disc space-y-2 text-cyan-900">
+                        <li><strong>Aprender a aprender:</strong> desarrollar habilidades para el aprendizaje autónomo.</li>
+                        <li><strong>Aprender a ser:</strong> promover valores esenciales para el siglo XXI.</li>
+                        <li><strong>Aprender a hacer:</strong> aplicar conocimientos de forma práctica y fomentar la convivencia.</li>
                     </ul>
                 </div>
                  <a href="https://sekchile.com/proyecto-educativo/" target="_blank" class="block w-full text-center p-3 mt-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-medium transition-colors">
@@ -145,9 +179,16 @@
                 <h2 class="text-xl font-bold text-cyan-600">Celebraciones y Tradiciones</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box">
-                <p>El colegio se caracteriza por una rica variedad de actividades, celebraciones y tradiciones que no solo enriquecen la formación integral de los alumnos y fortalecen el sentido de comunidad, sino que también consolidan y proyectan su cultura institucional.</p>
-                <p>Entre estas instancias se destacan el Día Abierto, el Día de la Música, el Día de los Abuelitos, la Cueca y la Despedida de los 4° medios, el Festival de Comidas Internacionales y los Festivales de Fin de Curso.</p>
-                <p>Asimismo, experiencias internacionales como la Semana Blanca y los encuentros InterSEK Deportivo y Cultural aportan una dimensión global que complementa esta identidad compartida.</p>
+                <p>El colegio se caracteriza por una rica variedad de actividades que enriquecen la formación de los alumnos y fortalecen el sentido de comunidad.</p>
+                <p>Se destacan el Día Abierto, Día de la Música, Día de los Abuelitos, la Despedida de los 4° medios, el Festival de Comidas Internacionales y los Festivales de Fin de Curso, además de experiencias internacionales como la Semana Blanca y los InterSEK.</p>
+                <div class="flex flex-col space-y-3 mt-4">
+                     <a href="https://www.instagram.com/colegiosekchile/?hl=es" target="_blank" class="btn-sub w-full text-left p-4 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white rounded-lg font-medium flex items-center justify-center transition-transform hover:scale-105">
+                        <i data-lucide="instagram" class="w-5 h-5 mr-3"></i>Revisa nuestro Instagram
+                    </a>
+                    <a href="https://www.flickr.com/photos/sekchile/with/53228959562" target="_blank" class="btn-sub w-full text-left p-4 bg-blue-500 text-white rounded-lg font-medium flex items-center justify-center transition-transform hover:scale-105">
+                        <i data-lucide="camera" class="w-5 h-5 mr-3"></i>Ver galería de fotos
+                    </a>
+                </div>
             </main>
         </div>
         
@@ -157,21 +198,18 @@
                 <h2 class="text-xl font-bold text-cyan-600">Perfil Docente SEK</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                <p>El profesor, por su especialización y compromiso, es responsable de la formación académica y humana de los estudiantes. Su labor debe estar alineada con el Ideario de la Institución SEK, actuando como modelo y transmisor de sus valores.</p>
+                <div class="bg-cyan-50 p-4 rounded-lg text-center">
+                    <p>El profesor es responsable de la formación académica y humana de los estudiantes, actuando como <strong>modelo y transmisor de los valores</strong> del Ideario SEK.</p>
+                </div>
                 <div>
-                    <h3 class="font-semibold text-cyan-700 mb-2">Funciones principales</h3>
-                    <ol class="list-decimal space-y-2">
-                        <li>Desarrollar su asignatura con responsabilidad y mantener una actitud educativa positiva.</li>
-                        <li>Planificar y programar sus clases según las directrices del Jefe de Estudios, atendiendo a la diversidad de los estudiantes.</li>
-                        <li>Favorecer el aprendizaje significativo, promoviendo el uso de conocimientos previos y la autorregulación del aprendizaje.</li>
-                        <li>Evaluar con justicia, transparencia y criterio pedagógico.</li>
-                        <li>Ser mediador activo del proceso de aprendizaje y apoyo en la formación integral del alumno.</li>
-                        <li>Preparar, aplicar y corregir evaluaciones, devolviendo retroalimentación clara cuando sea requerida.</li>
-                        <li>Participar en actos oficiales y sesiones de evaluación convocadas por la Jefatura de Estudios.</li>
-                        <li>Corregir errores de los alumnos de manera respetuosa y privada.</li>
-                        <li>Promover la autoestima, la motivación y el aprendizaje positivo.</li>
-                        <li>Fomentar el desarrollo de valores y una convivencia respetuosa.</li>
-                    </ol>
+                    <h3 class="font-semibold text-cyan-800 mb-3 text-center">Funciones principales</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start bg-gray-50 p-3 rounded-lg"><i data-lucide="book-check" class="w-5 h-5 mr-3 text-cyan-600 mt-1 shrink-0"></i><span>Planificar, programar y desarrollar su asignatura atendiendo a la diversidad.</span></div>
+                        <div class="flex items-start bg-gray-50 p-3 rounded-lg"><i data-lucide="lightbulb" class="w-5 h-5 mr-3 text-cyan-600 mt-1 shrink-0"></i><span>Favorecer el aprendizaje significativo y la autorregulación.</span></div>
+                        <div class="flex items-start bg-gray-50 p-3 rounded-lg"><i data-lucide="scale" class="w-5 h-5 mr-3 text-cyan-600 mt-1 shrink-0"></i><span>Evaluar con justicia, transparencia y criterio pedagógico, entregando retroalimentación clara.</span></div>
+                        <div class="flex items-start bg-gray-50 p-3 rounded-lg"><i data-lucide="users" class="w-5 h-5 mr-3 text-cyan-600 mt-1 shrink-0"></i><span>Ser mediador activo del aprendizaje y participar en actos y sesiones de evaluación.</span></div>
+                        <div class="flex items-start bg-gray-50 p-3 rounded-lg"><i data-lucide="heart-handshake" class="w-5 h-5 mr-3 text-cyan-600 mt-1 shrink-0"></i><span>Promover la autoestima, la motivación, los valores y una convivencia respetuosa.</span></div>
+                    </div>
                 </div>
             </main>
         </div>
@@ -305,17 +343,19 @@
                 <h2 class="text-xl font-bold text-teal-600">Protocolo Toma de Pruebas</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                <p><strong>1. Uso de celulares:</strong> Antes de iniciar, solicitar que los apaguen y guarden en sus mochilas.</p>
-                <p><strong>2. Disposición del aula:</strong> Organizar la sala en tres o cuatro filas indias antes de entregar la evaluación.</p>
-                <p><strong>3. Supervisión activa:</strong> El docente debe desplazarse constantemente por el aula. No está permitido corregir ni usar el computador.</p>
-                <p><strong>4. Entrega de pruebas:</strong> Las evaluaciones se guardan bajo la mesa y se recolectan todas juntas al final.</p>
-                <p><strong>5. Conducta tras finalizar:</strong> No se permite uso de celulares, iPads ni conversaciones. Si un alumno va al baño, no podrá retomar la prueba.</p>
-                <p><strong>6. Solicitudes para ir al baño:</strong> Actuar con criterio y evitar autorizaciones masivas para mantener el orden.</p>
-                <p><strong>7. Duración de la prueba:</strong> Diseñadas para 2 horas. Se puede extender a una 3ra hora si la mayoría no ha terminado o para alumnos con autorización.</p>
-                <p><strong>8. Tercera hora de clases:</strong> Si todos terminan, la 3ra hora se realiza con normalidad, sin distracciones.</p>
-                <p><strong>9. 3° y 4° Medios:</strong> Todos los estudiantes permanecen en la sala, incluso si no rinden la prueba (electivos). Deben estar en silencio y estudiando.</p>
-                <p><strong>10. Clases post-prueba:</strong> Las clases posteriores se desarrollan con normalidad para reforzar contenidos.</p>
-                <p><strong>11. Resolución de dudas:</strong> No se responden preguntas de contenido. Si hay un posible error, se anota para revisión posterior.</p>
+                 <ol class="list-decimal space-y-2 pl-5">
+                    <li><strong>Uso de celulares:</strong> Antes de iniciar, solicitar que los apaguen y guarden en sus mochilas.</li>
+                    <li><strong>Disposición del aula:</strong> Organizar la sala en tres o cuatro filas indias antes de entregar la evaluación.</li>
+                    <li><strong>Supervisión activa:</strong> El docente debe desplazarse constantemente por el aula. No está permitido corregir ni usar el computador.</li>
+                    <li><strong>Entrega de pruebas:</strong> Las evaluaciones se guardan bajo la mesa y se recolectan todas juntas al final.</li>
+                    <li><strong>Conducta tras finalizar:</strong> No se permite uso de celulares, iPads ni conversaciones. Si un alumno va al baño, no podrá retomar la prueba.</li>
+                    <li><strong>Solicitudes para ir al baño:</strong> Actuar con criterio y evitar autorizaciones masivas para mantener el orden.</li>
+                    <li><strong>Duración de la prueba:</strong> Diseñadas para 2 horas. Se puede extender a una 3ra hora si la mayoría no ha terminado o para alumnos con autorización.</li>
+                    <li><strong>Tercera hora de clases:</strong> Si todos terminan, la 3ra hora se realiza con normalidad, sin distracciones.</li>
+                    <li><strong>3° y 4° Medios:</strong> Todos los estudiantes permanecen en la sala, incluso si no rinden la prueba (electivos). Deben estar en silencio y estudiando.</li>
+                    <li><strong>Clases post-prueba:</strong> Las clases posteriores se desarrollan con normalidad para reforzar contenidos.</li>
+                    <li><strong>Resolución de dudas:</strong> No se responden preguntas de contenido. Si hay un posible error, se anota para revisión posterior.</li>
+                </ol>
             </main>
         </div>
 
@@ -326,18 +366,11 @@
                 <h2 class="text-xl font-bold text-teal-600">Protocolo de Retroalimentación</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box">
-                <div>
-                    <h3 class="font-semibold text-teal-700 mb-1">1. Retroalimentación</h3>
-                    <p>Las pruebas deben reflejar claramente los errores del alumno. El docente debe integrar comentarios que orienten la comprensión del error.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-teal-700 mb-1">2. Corrección</h3>
-                    <p>El plazo máximo de corrección es de una semana. Se debe realizar una corrección colectiva en la pizarra y luego los alumnos devuelven la prueba, pudiendo fotografiarla antes.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-teal-700 mb-1">3. Calificación</h3>
-                    <p>La escala de exigencia es del 60% para la aprobación (nota 4,0).</p>
-                </div>
+                <ol class="list-decimal space-y-2 pl-5">
+                    <li><strong>Retroalimentación:</strong> Las pruebas deben reflejar claramente los errores del alumno. El docente debe integrar comentarios que orienten la comprensión del error.</li>
+                    <li><strong>Corrección:</strong> El plazo máximo de corrección es de una semana. Se debe realizar una corrección colectiva en la pizarra y luego los alumnos devuelven la prueba, pudiendo fotografiarla antes.</li>
+                    <li><strong>Calificación:</strong> La escala de exigencia es del 60% para la aprobación (nota 4,0).</li>
+                </ol>
             </main>
         </div>
 
@@ -362,7 +395,31 @@
             </header>
             <main class="space-y-3">
                 <a href="https://sekchile.com/wp-content/uploads/sites/11/2020/10/Reglamento-de-Evaluacio%CC%81n-2020.pdf" target="_blank" class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="link" class="w-5 h-5 mr-3"></i>Enlace al documento</a>
-                <button class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="star" class="w-5 h-5 mr-3"></i>Aspectos de uso frecuente</button>
+                <button onclick="showScreen('aspectos-frecuentes-content')" class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="star" class="w-5 h-5 mr-3"></i>Aspectos de uso frecuente</button>
+            </main>
+        </div>
+        
+        <div id="aspectos-frecuentes-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('reglamento-evaluacion-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-teal-600">Ausencias en Evaluaciones</h2>
+            </header>
+            <main class="text-gray-700 space-y-4 text-sm content-box">
+                <p>Ante la ausencia a una evaluación, el alumno deberá presentar un justificativo para poder rendirla en una nueva fecha.</p>
+                <div class="space-y-3">
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                        <h4 class="font-semibold text-green-800 mb-2 flex items-center"><i data-lucide="file-medical" class="w-5 h-5 mr-2"></i>Con Certificado Médico</h4>
+                        <p>Tendrá la posibilidad de acceder a la <strong>nota máxima (7,0)</strong>, con una escala de exigencia del <strong>60%</strong>.</p>
+                    </div>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+                        <h4 class="font-semibold text-yellow-800 mb-2 flex items-center"><i data-lucide="notebook-pen" class="w-5 h-5 mr-2"></i>Con Comunicación del Apoderado</h4>
+                        <p>Podrá acceder a la <strong>nota máxima (7,0)</strong>, pero con una escala de exigencia del <strong>70%</strong>.</p>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                        <h4 class="font-semibold text-red-800 mb-2 flex items-center"><i data-lucide="file-x" class="w-5 h-5 mr-2"></i>Sin Justificativo</h4>
+                        <p>Solo podrá acceder a una <strong>nota máxima de 4,0</strong>, con una escala de exigencia del <strong>70%</strong>.</p>
+                    </div>
+                </div>
             </main>
         </div>
 
@@ -373,9 +430,9 @@
                 <h2 class="text-2xl font-bold text-teal-600">SM Educamos</h2>
             </header>
             <main class="space-y-3">
-                <button class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="link" class="w-5 h-5 mr-3"></i>Enlace</button>
+                <a href="https://sso1.educamos.com/Autenticacion/Acceder?ReturnUrl=%2Fissue%2Fwsfed%3Fwa%3Dwsignin1.0%26wtrealm%3Dhttps%253a%252f%252fsekchile-sek.educamos.com%252f%26wctx%3Drm%253d0%2526id%253dpassive%2526ru%253d%25252f%26wct%3D2025-08-24T02%253a29%253a36Z" target="_blank" class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="link" class="w-5 h-5 mr-3"></i>Enlace</a>
                 <button onclick="showScreen('cuaderno-profesor-menu')" class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="book" class="w-5 h-5 mr-3"></i>Cuaderno del Profesor</button>
-                <button class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="list" class="w-5 h-5 mr-3"></i>Lista de cursos</button>
+                <button onclick="showScreen('lista-curso-content')" class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="list" class="w-5 h-5 mr-3"></i>Lista de cursos</button>
             </main>
         </div>
 
@@ -386,8 +443,69 @@
                 <h2 class="text-2xl font-bold text-teal-600">Cuaderno del Profesor</h2>
             </header>
             <main class="space-y-3">
-                <button class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="layout-grid" class="w-5 h-5 mr-3"></i>Categorías y Subcategorías</button>
-                <button class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="percent" class="w-5 h-5 mr-3"></i>Ponderaciones</button>
+                <button onclick="showScreen('categorias-subcategorias-content')" class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="layout-grid" class="w-5 h-5 mr-3"></i>Categorías y Subcategorías</button>
+                <button onclick="showScreen('ponderaciones-content')" class="btn-sub w-full text-left p-4 bg-teal-50 hover:bg-teal-100 text-teal-800 rounded-lg font-medium flex items-center"><i data-lucide="percent" class="w-5 h-5 mr-3"></i>Ponderaciones</button>
+            </main>
+        </div>
+        
+        <div id="categorias-subcategorias-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('cuaderno-profesor-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-teal-600">Estructura del Cuaderno</h2>
+            </header>
+            <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                <p>En cada bimestre, el cuaderno del profesor debe tener la siguiente estructura:</p>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                    <h3 class="font-bold text-blue-800 mb-2 flex items-center"><i data-lucide="folder" class="w-5 h-5 mr-2"></i>Categoría: Nota Mensual (40%)</h3>
+                    <p class="mb-2"><strong>Abreviación:</strong> N1, N2, etc. (según bimestre)</p>
+                    <ul class="list-disc pl-5 space-y-2 text-blue-900">
+                        <li><strong>Subcategoría:</strong> Se agregan las evaluaciones del período (controles, guías, etc.). El peso lo define cada departamento.</li>
+                        <li><strong>Ponderación Deportiva (PD):</strong> Se agrega al final con peso 9999. Solo para seleccionados con nota 6.0 o más, recibiendo un 10% de ponderación (ej: 6.2 -> 6.8).</li>
+                    </ul>
+                </div>
+                 <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                    <h3 class="font-bold text-green-800 mb-2 flex items-center"><i data-lucide="folder-check" class="w-5 h-5 mr-2"></i>Categoría: Prueba Bimestral (60%)</h3>
+                    <p class="mb-2"><strong>Abreviación:</strong> P1, P2, etc.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-green-900">
+                        <li><strong>Subcategoría:</strong> Prueba Bimestral.</li>
+                    </ul>
+                </div>
+                 <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
+                    <h3 class="font-bold text-orange-800 mb-2 flex items-center"><i data-lucide="folder-sync" class="w-5 h-5 mr-2"></i>Categoría: Prueba Recuperativa</h3>
+                    <p class="mb-2"><strong>Abreviación:</strong> R1, R2, etc. <strong>Peso:</strong> 9999</p>
+                    <ul class="list-disc pl-5 space-y-2 text-orange-900">
+                        <li><strong>Subcategoría:</strong> Solo se completa si el alumno obtiene un 4.0 en la recuperación.</li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+        
+        <div id="ponderaciones-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('cuaderno-profesor-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-teal-600">Ponderaciones Automáticas</h2>
+            </header>
+            <main class="text-gray-700 space-y-4 text-sm content-box">
+                <p>Al finalizar el bimestre, el sistema pondera automáticamente el resultado final en las asignaturas de estudio bajo estas condiciones:</p>
+                <div class="bg-teal-50 p-4 rounded-lg space-y-3">
+                    <div class="flex items-start"><i data-lucide="trending-up" class="w-5 h-5 mr-3 text-teal-600 mt-1 shrink-0"></i><span>Resultado entre <strong>5.0 y 5.9</strong> recibe un <strong>5%</strong> de ponderación (tres décimas más).</span></div>
+                    <div class="flex items-start"><i data-lucide="rocket" class="w-5 h-5 mr-3 text-teal-600 mt-1 shrink-0"></i><span>Resultado desde <strong>6.0 en adelante</strong> recibe un <strong>10%</strong> de ponderación (seis décimas más).</span></div>
+                </div>
+            </main>
+        </div>
+        
+        <div id="lista-curso-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('sm-educamos-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-teal-600">Lista de Curso</h2>
+            </header>
+            <main class="text-gray-700 space-y-3 text-sm content-box">
+                 <ul class="list-disc space-y-2 pl-5">
+                    <li>Se debe pasar la lista en <strong>cada hora</strong> de la jornada escolar.</li>
+                    <li>La primera lista del día es fundamental y se debe realizar a las <strong>8:32 horas</strong>.</li>
+                    <li>En la plataforma se deben marcar los <strong>alumnos ausentes</strong>.</li>
+                    <li>En caso de asistencia completa pinchar el botón que así lo indica.</li>
+                </ul>
             </main>
         </div>
         
@@ -397,11 +515,135 @@
                 <h2 class="text-2xl font-bold text-emerald-600">Bachillerato Internacional</h2>
             </header>
             <main class="space-y-3">
-                <button class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="history" class="w-5 h-5 mr-3"></i>Historia y Trayectoria</button>
-                <button class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="user" class="w-5 h-5 mr-3"></i>Perfil de Alumno</button>
+                <button onclick="showScreen('historia-trayectoria-content')" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="history" class="w-5 h-5 mr-3"></i>Historia y Trayectoria</button>
+                <a href="https://ibo.org/globalassets/new-structure/about-the-ib/pdfs/learner-profile-es.pdf" target="_blank" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="user" class="w-5 h-5 mr-3"></i>Perfil de Alumno</a>
                 <button class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="network" class="w-5 h-5 mr-3"></i>Malla Curricular</button>
-                <button class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="file-input" class="w-5 h-5 mr-3"></i>Requisitos para ingresar</button>
-                <button class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3"></i>Resultados</button>
+                <button onclick="showScreen('proceso-admision-content')" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="file-input" class="w-5 h-5 mr-3"></i>Proceso de Admisión</button>
+                <button onclick="showScreen('resultados-ib-content')" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3"></i>Resultados</button>
+            </main>
+        </div>
+        
+        <div id="historia-trayectoria-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('bachillerato')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-emerald-600">Historia y Trayectoria del IB</h2>
+            </header>
+            <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                <div class="bg-emerald-50 p-4 rounded-lg">
+                    <p class="mb-2">El <strong>Bachillerato Internacional (IB)</strong>, fundado en 1968 en Ginebra, Suiza, busca ofrecer un currículo común para promover una educación internacional, rigurosa y centrada en valores.</p>
+                    <p>El IB forma jóvenes solidarios, informados y ávidos de conocimiento, capaces de contribuir a un mundo más pacífico. Sus programas son reconocidos por universidades a nivel global.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-emerald-700 mb-2">Programa del Diploma (PD)</h3>
+                    <p class="mb-3">El Colegio Internacional SEK Chile imparte el PD desde <strong>1988</strong>. Dirigido a estudiantes de 16 a 19 años, combina exigencia académica con formación ética y personal.</p>
+                     <div class="bg-white border border-emerald-200 p-4 rounded-lg">
+                        <h4 class="font-bold text-emerald-800 mb-2">Componentes Troncales:</h4>
+                        <ul class="list-disc space-y-2 pl-5">
+                            <li><strong>Monografía:</strong> Investigación independiente sobre un tema elegido.</li>
+                            <li><strong>Teoría del Conocimiento (TOK):</strong> Reflexión crítica sobre cómo se construye el conocimiento.</li>
+                            <li><strong>Creatividad, Actividad y Servicio (CAS):</strong> Experiencias prácticas para el desarrollo personal y comunitario.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="mt-2">Este programa prepara a los estudiantes para enfrentar con éxito estudios universitarios y desafíos globales.</p>
+            </main>
+        </div>
+        
+        <div id="proceso-admision-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('bachillerato')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-emerald-600">Proceso de Admisión al PD</h2>
+            </header>
+            <main class="text-gray-700 space-y-4 text-sm content-box">
+                <p>Cuando un estudiante y su familia expresan interés en ingresar al Programa del Diploma, se inicia un proceso que considera los siguientes aspectos:</p>
+                <div class="space-y-3">
+                    <div class="flex items-start bg-emerald-50 p-3 rounded-lg">
+                        <i data-lucide="file-archive" class="w-6 h-6 mr-3 text-emerald-600 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-emerald-800">Expediente académico</h4>
+                            <p>Historial y desempeño escolar.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-emerald-50 p-3 rounded-lg">
+                        <i data-lucide="user-check" class="w-6 h-6 mr-3 text-emerald-600 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-emerald-800">Perfil del estudiante</h4>
+                            <p>Responsabilidad, interés, autonomía y aptitudes para el estudio individual y en equipo.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-emerald-50 p-3 rounded-lg">
+                        <i data-lucide="target" class="w-6 h-6 mr-3 text-emerald-600 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-emerald-800">Intereses académicos y profesionales</h4>
+                            <p>Motivación y objetivos del alumno.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start bg-emerald-50 p-3 rounded-lg">
+                        <i data-lucide="shield-check" class="w-6 h-6 mr-3 text-emerald-600 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-emerald-800">Faltas de probidad académica</h4>
+                            <p>Historial de integridad académica.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-4 text-xs text-center text-gray-600 bg-gray-50 p-3 rounded-md">La solicitud es evaluada por el <strong>Consejo de Profesores</strong>, con la participación del Jefe de Estudios y la Coordinadora del Programa.</p>
+            </main>
+        </div>
+        
+        <div id="resultados-ib-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('bachillerato')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-emerald-600">Resultados IB - Mayo 2025</h2>
+            </header>
+            <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                <div class="grid grid-cols-2 gap-3 text-center">
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <p class="text-2xl font-bold text-emerald-700">100%</p>
+                        <p class="text-xs">Alumnos obtuvieron el Diploma</p>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <p class="text-2xl font-bold text-emerald-700">33</p>
+                        <p class="text-xs">Puntuación promedio</p>
+                    </div>
+                     <div class="bg-emerald-50 p-3 rounded-lg">
+                        <p class="text-2xl font-bold text-emerald-700">39</p>
+                        <p class="text-xs">Puntuación más alta</p>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <p class="text-2xl font-bold text-emerald-700">5.22</p>
+                        <p class="text-xs">Calificación promedio</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-emerald-700 mb-2">Resumen General</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Todas las asignaturas superan la media mundial.</li>
+                        <li><strong>Química NM:</strong> +26,73% sobre la media mundial.</li>
+                        <li><strong>Matemáticas Aplicaciones:</strong> +24,03% sobre la media mundial.</li>
+                        <li><strong>Economía NM y Gestión Empresarial:</strong> +21% sobre la media mundial.</li>
+                        <li><strong>Inglés B NS:</strong> Promedio del colegio 6.21 vs 5.63 mundial.</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="font-semibold text-emerald-700 mb-2">Comparación Histórica (Puntaje Promedio)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-emerald-50">
+                                <tr>
+                                    <th class="p-2 rounded-l-lg">Año</th>
+                                    <th class="p-2"># Alumnos</th>
+                                    <th class="p-2">Promedio</th>
+                                    <th class="p-2 rounded-r-lg">Punt. Más Alto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="p-2 border-b">2023</td><td class="p-2 border-b">19</td><td class="p-2 border-b">31</td><td class="p-2 border-b">41</td></tr>
+                                <tr><td class="p-2 border-b">2024</td><td class="p-2 border-b">18</td><td class="p-2 border-b">30</td><td class="p-2 border-b">35</td></tr>
+                                <tr><td class="p-2">2025</td><td class="p-2">19</td><td class="p-2 font-bold">33</td><td class="p-2 font-bold">39</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </main>
         </div>
 
@@ -415,7 +657,7 @@
                 <a href="https://drive.google.com/drive/folders/1ZmMb52PHjBJn8afDcVAhviQyy9a6t2PZ?usp=drive_link" target="_blank" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="file-text" class="w-5 h-5 mr-3"></i>Informes de Convivencia</a>
                 <button onclick="showScreen('rol-docente-content')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="user-cog" class="w-5 h-5 mr-3"></i>Rol del Docente</button>
                 <button onclick="showScreen('normativa-menu')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="gavel" class="w-5 h-5 mr-3"></i>Normativa</button>
-                <button class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="help-circle" class="w-5 h-5 mr-3"></i>Preguntas frecuentes</button>
+                <button onclick="showScreen('preguntas-frecuentes-content')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="help-circle" class="w-5 h-5 mr-3"></i>Preguntas frecuentes</button>
             </main>
         </div>
         
@@ -433,6 +675,72 @@
                     <li>Trabaja en conjunto con el equipo de convivencia escolar para acciones preventivas.</li>
                     <li>Contribuye a construir una cultura de aula basada en la confianza y el respeto.</li>
                 </ul>
+            </main>
+        </div>
+        
+        <div id="preguntas-frecuentes-content" class="screen">
+            <header class="flex items-center mb-6">
+                <button onclick="showScreen('convivencia')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-amber-600">Preguntas Frecuentes</h2>
+            </header>
+            <main class="text-gray-700 space-y-3 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                <div class="faq-item bg-amber-50 rounded-lg p-3">
+                    <div class="faq-question flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-amber-800">¿Qué acciones están permitidas para manejar conductas disruptivas?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-amber-600 chevron"></i>
+                    </div>
+                    <div class="faq-answer text-amber-900">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Llamado de atención.</li>
+                            <li>Diálogo personal con el estudiante.</li>
+                            <li>Informar al tutor.</li>
+                            <li>En casos graves o reiterados, enviar un informe de convivencia.</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="faq-item bg-amber-50 rounded-lg p-3">
+                    <div class="faq-question flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-amber-800">¿Qué hacer si un estudiante informa problemas personales graves?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-amber-600 chevron"></i>
+                    </div>
+                    <div class="faq-answer text-amber-900">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Escuchar con atención y sin juzgar.</li>
+                            <li>Realizar un acta de la conversación.</li>
+                            <li>No prometer confidencialidad absoluta.</li>
+                            <li>Informar al Tutor y Jefe de Estudios para activar protocolos.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item bg-amber-50 rounded-lg p-3">
+                    <div class="faq-question flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-amber-800">¿Qué hacer si un alumno presenta problemas emocionales en el aula?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-amber-600 chevron"></i>
+                    </div>
+                    <div class="faq-answer text-amber-900">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Contener emocionalmente sin exponerlo. Si es posible, conversar brevemente fuera del aula.</li>
+                            <li>Evitar juicios o minimizar lo que siente.</li>
+                            <li>Informar de inmediato a Jefatura de Estudios o Tutor, quienes evaluarán la derivación a psicología.</li>
+                            <li>Si no los encuentra, contactar a la secretaria del ciclo.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item bg-amber-50 rounded-lg p-3">
+                    <div class="faq-question flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-amber-800">¿Qué hacer si un alumno se autolesiona?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-amber-600 chevron"></i>
+                    </div>
+                    <div class="faq-answer text-amber-900">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Derivación a enfermería para primeros auxilios.</li>
+                            <li>Derivación inmediata a Psicóloga Escolar.</li>
+                            <li>Notificación al apoderado y registro en ficha tutorial.</li>
+                            <li>Se exige derivación externa (Psicólogo/Psiquiatra) con plazo de 2 semanas.</li>
+                            <li>Seguimiento del tratamiento externo.</li>
+                        </ul>
+                    </div>
+                </div>
             </main>
         </div>
         
@@ -457,6 +765,9 @@
                 <button onclick="showScreen('uniformidad-ninas-content')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="female" class="w-5 h-5 mr-3"></i>Niñas</button>
                 <button onclick="showScreen('uniformidad-ninos-content')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="male" class="w-5 h-5 mr-3"></i>Niños</button>
                 <button onclick="showScreen('faltas-frecuentes-content')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="alert-triangle" class="w-5 h-5 mr-3"></i>Faltas Frecuentes</button>
+                 <a href="https://sekchile.com/uniforme/" target="_blank" class="block w-full text-center p-3 mt-4 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-medium transition-colors">
+                    Ver detalles del uniforme
+                </a>
             </main>
         </div>
 
@@ -465,18 +776,16 @@
                 <button onclick="showScreen('uniformidad-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
                 <h2 class="text-xl font-bold text-amber-600">Uniforme Niñas</h2>
             </header>
-            <main class="text-gray-700 space-y-2 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                 <ul class="list-disc">
-                    <li>Polera piqué blanca o azul, con escudo, por dentro de la falda.</li>
-                    <li>Jersey azul marino cuello V con escudo, o polerón institucional.</li>
-                    <li>Falda escocesa (modelo colegio) hasta la rodilla.</li>
-                    <li>Medias o pantys azul marino (invierno).</li>
-                    <li>Zapatos negros (no zapatillas ni bototos).</li>
-                    <li>Camiseta interior blanca sin estampados.</li>
-                    <li>Opcional: Pantalón azul marino de corte recto formal.</li>
-                    <li>Accesorios para el pelo: azul, rojo o blanco.</li>
-                    <li>Abrigo: Polar o polerón azul con escudo, parka azul marino lisa. Bufanda, guantes y gorro azul marino.</li>
-                </ul>
+            <main class="text-gray-700 space-y-3 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                 <div class="bg-amber-50 p-4 rounded-lg space-y-2">
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Polera piqué (blanca/azul) con escudo, por dentro.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Jersey o polerón institucional.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Falda escocesa hasta la rodilla.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Medias o pantys azul marino.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Zapatos negros (no zapatillas).</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Opcional: Pantalón azul marino formal.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Abrigo azul marino institucional.</span></div>
+                 </div>
             </main>
         </div>
         
@@ -485,16 +794,15 @@
                 <button onclick="showScreen('uniformidad-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
                 <h2 class="text-xl font-bold text-amber-600">Uniforme Niños</h2>
             </header>
-            <main class="text-gray-700 space-y-2 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                 <ul class="list-disc">
-                    <li>Polera piqué blanca o azul, con escudo, por dentro del pantalón.</li>
-                    <li>Jersey azul marino cuello V con escudo, o polerón institucional.</li>
-                    <li>Pantalón gris de vestir recto.</li>
-                    <li>Cinturón negro (no de tela).</li>
-                    <li>Zapatos negros cerrados (no tipo zapatilla ni bototos).</li>
-                    <li>Calcetines gris o azul marino.</li>
-                    <li>Camiseta interior blanca sin cuello alto ni estampados.</li>
-                </ul>
+            <main class="text-gray-700 space-y-3 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                 <div class="bg-amber-50 p-4 rounded-lg space-y-2">
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Polera piqué (blanca/azul) con escudo, por dentro.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Jersey o polerón institucional.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Pantalón gris de vestir recto.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Cinturón negro.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Zapatos negros cerrados.</span></div>
+                    <div class="flex items-start"><i data-lucide="check" class="w-5 h-5 mr-3 text-amber-600 mt-1 shrink-0"></i><span>Calcetines gris o azul marino.</span></div>
+                 </div>
             </main>
         </div>
         
@@ -505,24 +813,25 @@
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box">
                 <p>Aspectos a los que se debe prestar atención y solicitar corrección:</p>
-                <div>
-                    <h3 class="font-semibold text-amber-700 mb-1">Niñas</h3>
-                    <ul class="list-disc">
-                        <li>Faldas cortas (más de tres dedos sobre la rodilla).</li>
-                        <li>Uso de polerón con capucha bajo el polerón institucional.</li>
-                        <li>Uso de piercing en la nariz.</li>
-                        <li>Uñas pintadas.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-amber-700 mb-1">Niños</h3>
-                    <ul class="list-disc">
-                        <li>Polerones con capucha bajo el polerón institucional.</li>
-                        <li>Pantalones bajo la cintura.</li>
-                        <li>Cabellos tinturados (visos).</li>
-                        <li>Uso de piercing (principalmente orejas).</li>
-                        <li>Tatuajes.</li>
-                    </ul>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-red-50 p-3 rounded-lg">
+                        <h3 class="font-semibold text-red-800 mb-2 text-center">Niñas</h3>
+                        <ul class="list-disc text-red-900 pl-5">
+                            <li>Faldas cortas</li>
+                            <li>Polerón con capucha</li>
+                            <li>Piercing en nariz</li>
+                            <li>Uñas pintadas</li>
+                        </ul>
+                    </div>
+                     <div class="bg-red-50 p-3 rounded-lg">
+                        <h3 class="font-semibold text-red-800 mb-2 text-center">Niños</h3>
+                        <ul class="list-disc text-red-900 pl-5">
+                            <li>Polerón con capucha</li>
+                            <li>Pantalones caídos</li>
+                            <li>Cabello tinturado</li>
+                            <li>Piercings / Tatuajes</li>
+                        </ul>
+                    </div>
                 </div>
             </main>
         </div>
@@ -532,20 +841,25 @@
                 <button onclick="showScreen('normativa-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
                 <h2 class="text-xl font-bold text-amber-600">Presentación Personal</h2>
             </header>
-            <main class="text-gray-700 space-y-3 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                 <ol class="list-decimal space-y-2">
-                    <li><strong>Alumnos (sexo masculino):</strong> Cabello limpio, bien peinado, de largo que no sobrepase el cuello del uniforme y con volumen adecuado. Deben asistir rasurados todos los días.</li>
-                    <li><strong>Alumnas (sexo femenino):</strong> Cabello limpio y bien peinado.</li>
-                    <li><strong>Elementos comunes para todos los estudiantes:</strong>
-                        <ul class="list-disc pl-5 mt-2">
-                            <li>Prohibida la coloración artificial del cabello.</li>
-                            <li>Prohibido el uso de uñas postizas, esmalte, extensiones, piercings, expansiones, collares, pulseras y anillos vistosos.</li>
-                            <li>No se permiten peinados extravagantes o diseños con rapados, accesorios capilares ni tatuajes visibles (deben estar cubiertos).</li>
-                            <li>Prohibido el uso de maquillaje.</li>
-                            <li>Prohibido el uso de piercing.</li>
-                        </ul>
-                    </li>
-                </ol>
+            <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                 <div class="bg-amber-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-amber-800 mb-2 flex items-center"><i data-lucide="male" class="w-5 h-5 mr-2"></i>Alumnos</h3>
+                    <p>Cabello limpio, bien peinado, de largo que no sobrepase el cuello del uniforme y con volumen adecuado. Deben asistir rasurados todos los días.</p>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-amber-800 mb-2 flex items-center"><i data-lucide="female" class="w-5 h-5 mr-2"></i>Alumnas</h3>
+                    <p>Cabello limpio y bien peinado.</p>
+                </div>
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                    <h3 class="font-semibold text-red-800 mb-2 flex items-center"><i data-lucide="ban" class="w-5 h-5 mr-2"></i>Prohibiciones Generales</h3>
+                    <ul class="list-disc pl-5 space-y-1 text-red-900">
+                        <li>Coloración artificial del cabello.</li>
+                        <li>Uñas postizas, esmalte, extensiones.</li>
+                        <li>Piercings, expansiones, collares, pulseras y anillos vistosos.</li>
+                        <li>Peinados extravagantes, rapados con diseños o tatuajes visibles.</li>
+                        <li>Uso de maquillaje.</li>
+                    </ul>
+                </div>
             </main>
         </div>
 
@@ -555,17 +869,16 @@
                 <h2 class="text-xl font-bold text-amber-600">Uso de Celulares</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box">
-                <p>Está estrictamente prohibido el uso y porte de celulares y otros dispositivos electrónicos (como relojes inteligentes) desde Playgroup hasta IV Medio.</p>
-                <div>
-                    <h3 class="font-semibold text-amber-700 mb-2">Procedimiento en caso de infracción:</h3>
-                    <ol class="list-decimal space-y-2">
-                        <li>El docente deberá retener el dispositivo y entregarlo a Jefatura de Estudios, quien lo devolverá al estudiante al finalizar la jornada escolar.</li>
-                        <li>Antes de entregar el dispositivo, se deberá informar el nombre del estudiante a la secretaria del ciclo, quien llevará el registro correspondiente.</li>
-                        <li>En caso de una segunda infracción, la secretaria del ciclo elaborará un informe de convivencia escolar, el cual será entregado al alumno por el Tutor.</li>
-                        <li>Ante una tercera infracción, se citará al apoderado para que retire personalmente el dispositivo.</li>
-                        <li>En una cuarta ocasión, se aplicará la sanción de suspensión por un día.</li>
-                    </ol>
+                <div id="checklist-celulares" class="checklist-container">
+                    <div class="checklist-item"><i data-lucide="ban" class="w-5 h-5 mr-3 text-red-500 shrink-0"></i><span><strong>Prohibición estricta</strong> del uso y porte de celulares y otros dispositivos (relojes inteligentes) desde Playgroup hasta IV Medio.</span></div>
+                    <div class="checklist-item"><i data-lucide="arrow-right-circle" class="w-5 h-5 mr-3 text-amber-500 shrink-0"></i><span><strong>1ra vez:</strong> Retener dispositivo, entregar a Jefatura de Estudios y registrar.</span></div>
+                    <div class="checklist-item"><i data-lucide="arrow-right-circle" class="w-5 h-5 mr-3 text-amber-500 shrink-0"></i><span><strong>2da vez:</strong> Elaborar un informe de convivencia escolar.</span></div>
+                    <div class="checklist-item"><i data-lucide="arrow-right-circle" class="w-5 h-5 mr-3 text-amber-500 shrink-0"></i><span><strong>3ra vez:</strong> Citar al apoderado para que retire el dispositivo.</span></div>
+                    <div class="checklist-item"><i data-lucide="arrow-right-circle" class="w-5 h-5 mr-3 text-amber-500 shrink-0"></i><span><strong>4ta vez:</strong> Aplicar suspensión por un día.</span></div>
                 </div>
+                <button onclick="revealNextItem('checklist-celulares')" class="w-full mt-4 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-lg">
+                    Siguiente Punto
+                </button>
             </main>
         </div>
 
@@ -588,17 +901,17 @@
                 <h2 class="text-xl font-bold text-sky-600">Permisos y Ausencias</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box">
-                <div>
-                    <h3 class="font-semibold text-sky-700 mb-1">Autorización de permisos</h3>
-                    <p>El funcionario debe completar un formulario en secretaría con al menos dos días de anticipación, indicando horario y motivo.</p>
+                <div class="bg-sky-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-sky-800 mb-2 flex items-center"><i data-lucide="file-signature" class="w-5 h-5 mr-2"></i>Autorización de permisos</h3>
+                    <p>Completar formulario en secretaría con al menos <strong>dos días de anticipación</strong>, indicando horario y motivo.</p>
                 </div>
-                <div>
-                    <h3 class="font-semibold text-sky-700 mb-1">Ausencias</h3>
-                    <p>Para ausencias planificadas, usar el mismo formulario. Para imprevistos, informar de inmediato a Jefatura de Estudios por correo o WhatsApp.</p>
+                <div class="bg-sky-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-sky-800 mb-2 flex items-center"><i data-lucide="calendar-x" class="w-5 h-5 mr-2"></i>Ausencias</h3>
+                    <p>Para imprevistos, informar de inmediato a Jefatura de Estudios por <strong>correo o WhatsApp</strong> para gestionar reemplazos.</p>
                 </div>
-                <div>
-                    <h3 class="font-semibold text-sky-700 mb-1">Licencias médicas</h3>
-                    <p>Llegan a RRHH, pero se agradece informar también a la jefatura directa para agilizar la gestión de reemplazos.</p>
+                <div class="bg-sky-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-sky-800 mb-2 flex items-center"><i data-lucide="file-medical" class="w-5 h-5 mr-2"></i>Licencias médicas</h3>
+                    <p>Aunque llegan a RRHH, se agradece <strong>informar también a la jefatura directa</strong> para agilizar la coordinación.</p>
                 </div>
             </main>
         </div>
@@ -609,13 +922,12 @@
                 <h2 class="text-xl font-bold text-sky-600">Consejos de Profesores</h2>
             </header>
             <main class="text-gray-700 space-y-3 text-sm content-box">
-                 <ul class="list-disc space-y-2">
-                    <li>Se realizan cuatro veces al año, al finalizar cada bimestre.</li>
-                    <li>Participan todos los profesores del ciclo para revisar el rendimiento académico.</li>
-                    <li>Se analiza el proceso de aprendizaje de cada curso y casos particulares.</li>
-                    <li>La asistencia docente es obligatoria.</li>
-                    <li>Los Tutores son responsables de organizar y presentar la información de su curso.</li>
-                </ul>
+                 <div class="bg-sky-50 p-4 rounded-lg space-y-3">
+                    <div class="flex items-start"><i data-lucide="calendar-days" class="w-5 h-5 mr-3 text-sky-600 mt-1 shrink-0"></i><span>Se realizan <strong>cuatro veces al año</strong>, al finalizar cada bimestre.</span></div>
+                    <div class="flex items-start"><i data-lucide="bar-chart-3" class="w-5 h-5 mr-3 text-sky-600 mt-1 shrink-0"></i><span>Se analiza el rendimiento académico, el proceso de aprendizaje de cada curso y casos particulares.</span></div>
+                    <div class="flex items-start"><i data-lucide="check-check" class="w-5 h-5 mr-3 text-sky-600 mt-1 shrink-0"></i><span>La <strong>asistencia docente es obligatoria</strong>.</span></div>
+                    <div class="flex items-start"><i data-lucide="user-cog" class="w-5 h-5 mr-3 text-sky-600 mt-1 shrink-0"></i><span>Los <strong>Tutores</strong> son responsables de organizar y presentar la información de su curso.</span></div>
+                 </div>
             </main>
         </div>
         
@@ -625,14 +937,11 @@
                 <h2 class="text-xl font-bold text-sky-600">Presentación Personal Docente</h2>
             </header>
             <main class="text-gray-700 space-y-3 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                 <ul class="list-disc space-y-2">
-                    <li>Se espera una presentación pulcra, ordenada y profesional.</li>
-                    <li>El código de vestimenta es formal. Para varones es obligatoria la corbata.</li>
-                    <li>La vestimenta debe transmitir respeto y seriedad.</li>
-                    <li>El calzado debe ser formal (no sandalias ni zapatillas).</li>
-                    <li>Se prohíben piercings, tinturas de colores extravagantes y tatuajes visibles.</li>
-                    <li>En actividades especiales se espera una especial atención al vestir.</li>
-                </ul>
+                 <div class="bg-sky-50 p-4 rounded-lg space-y-3">
+                    <div class="flex items-start"><i data-lucide="shirt" class="w-5 h-5 mr-3 text-sky-600 mt-1 shrink-0"></i><span>Mantener una presentación <strong>pulcra, ordenada y profesional</strong>. El código de vestimenta es formal (corbata obligatoria para varones).</span></div>
+                    <div class="flex items-start"><i data-lucide="user-check" class="w-5 h-5 mr-3 text-sky-600 mt-1 shrink-0"></i><span>La vestimenta debe transmitir <strong>respeto y seriedad</strong>. El calzado debe ser formal.</span></div>
+                    <div class="flex items-start"><i data-lucide="gem" class="w-5 h-5 mr-3 text-sky-600 mt-1 shrink-0"></i><span>Se prohíben <strong>piercings, tinturas de colores extravagantes y tatuajes visibles</strong>.</span></div>
+                 </div>
             </main>
         </div>
 
@@ -666,42 +975,34 @@
                 <h2 class="text-xl font-bold text-indigo-600">Primer Trimestre</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                <div>
+                <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">FEBRERO</h3>
-                    <ul class="list-disc">
+                    <ul class="list-disc pl-5">
                         <li>Lunes 24: Inicio de clases en Preescolar y Primer Ciclo</li>
                         <li>Martes 25: Inicio de clases en Segundo Ciclo y Enseñanza Media</li>
                     </ul>
                 </div>
-                 <div>
+                 <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">MARZO</h3>
-                    <ul class="list-disc">
+                    <ul class="list-disc pl-5">
                         <li>Lunes 3 al viernes 7: Pruebas de selecciones deportivas</li>
                         <li>Lunes 10: Inicio de talleres extraescolares</li>
-                        <li>Lunes 10 al viernes 14: Inicio de selecciones deportivas</li>
-                        <li>Jueves 13: Bienvenida y desayuno de alumnos nuevos con el Director</li>
-                        <li>Viernes 14: Entrega de diplomas exámenes de Cambridge</li>
-                        <li>Viernes 21 al domingo 23: Pretemporada Guayapolis (Grupo 1)</li>
-                        <li>Martes 25: Elecciones del Club de Alumnos (E. Media)</li>
-                        <li>Viernes 28 al domingo 30: Pretemporada Guayapolis (Grupo 2)</li>
+                        <li>Jueves 13: Bienvenida alumnos nuevos</li>
+                        <li>Viernes 21 al domingo 30: Pretemporada Guayapolis</li>
                     </ul>
                 </div>
-                <div>
+                <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">ABRIL</h3>
-                    <ul class="list-disc">
+                    <ul class="list-disc pl-5">
                         <li>Martes 1: Inicio de charlas de Primera Comunión</li>
                         <li>Lunes 14 al miércoles 16: Fiesta del Colegio</li>
-                        <li>Jueves 17 y viernes 18: Jueves y Viernes Santo</li>
                         <li>Miércoles 23: Día Mundial del Libro</li>
-                        <li>Miércoles 23 al viernes 25: Feria del Libro Colegio SEK</li>
-                        <li>Por definir: Escuela para Padres (Segundo Ciclo y Media)</li>
                     </ul>
                 </div>
-                 <div>
+                 <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">MAYO</h3>
-                    <ul class="list-disc">
-                        <li>Viernes 9: Día del Estudiante (Segundo Ciclo y E. Media)</li>
-                        <li>Por definir: Día de la Convivencia Escolar</li>
+                    <ul class="list-disc pl-5">
+                        <li>Viernes 9: Día del Estudiante</li>
                         <li>Sábado 24: Primer Día Abierto</li>
                         <li>Lunes 26 al viernes 30: InterSEK Cultural - Costa Rica</li>
                     </ul>
@@ -715,45 +1016,30 @@
                 <h2 class="text-xl font-bold text-indigo-600">Segundo Trimestre</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                <div>
+                <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">JUNIO</h3>
-                    <ul class="list-disc">
-                        <li>Lunes 2: Entrega de información ‘Día Blanco’ y ‘El Colorado’</li>
+                    <ul class="list-disc pl-5">
                         <li>Lunes 2: Inicio de Talleres Académicos II° Ciclo</li>
                         <li>Lunes 9 al jueves 12: Fotos individuales</li>
-                        <li>Jueves 19: Fotografías individuales rezagados</li>
-                        <li>Lunes 26 al viernes 30: Día (Mes) del Medio Ambiente</li>
-                        <li>Viernes 27: Último día de talleres extraescolares (1er semestre)</li>
+                        <li>Viernes 27: Último día de talleres (1er semestre)</li>
                         <li>Lunes 30 junio al viernes 18 julio: Vacaciones de invierno</li>
                     </ul>
                 </div>
-                 <div>
-                    <h3 class="font-semibold text-indigo-700 mb-2">JULIO</h3>
-                    <ul class="list-disc">
-                        <li>Lunes 21: Reinicio de clases</li>
-                        <li>Lunes 28: Inicio del programa 'Día Blanco'</li>
-                    </ul>
-                </div>
-                <div>
+                 <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">AGOSTO</h3>
-                    <ul class="list-disc">
-                        <li>Lunes 4: Inicio de talleres extraescolares (2do Semestre)</li>
-                        <li>Lunes 4 al jueves 7: Fotografías grupales</li>
-                        <li>Jueves 7: Misa Didáctica (alumnos PC)</li>
+                    <ul class="list-disc pl-5">
+                        <li>Lunes 4: Inicio de talleres (2do Semestre)</li>
                         <li>Viernes 8: Día del Niño</li>
                         <li>Viernes 29: Reunión de Antiguos Alumnos</li>
                         <li>Por definir: Semana Blanca</li>
                     </ul>
                 </div>
-                 <div>
+                 <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">SEPTIEMBRE</h3>
-                    <ul class="list-disc">
-                        <li>Martes 2 al viernes 5: Día de los Abuelitos (Preescolar)</li>
-                        <li>Lunes 8: Entrega de la lista de libros para 2026</li>
-                        <li>Viernes 12: Acto Cívico Fiestas Patrias / Asado</li>
+                    <ul class="list-disc pl-5">
+                        <li>Martes 2 al viernes 5: Día de los Abuelitos</li>
+                        <li>Viernes 12: Acto Cívico Fiestas Patrias</li>
                         <li>Lunes 15 al viernes 19: Vacaciones de Fiestas Patrias</li>
-                        <li>Por definir: Viaje de estudios de III Medio</li>
-                        <li>Lunes 22: Reinicio de clases</li>
                     </ul>
                 </div>
             </main>
@@ -765,39 +1051,29 @@
                 <h2 class="text-xl font-bold text-indigo-600">Tercer Trimestre</h2>
             </header>
             <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                <div>
+                <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">OCTUBRE</h3>
-                    <ul class="list-disc">
+                    <ul class="list-disc pl-5">
                         <li>Sábado 11: Segundo Día Abierto</li>
                         <li>Viernes 17: Celebración del Día del Profesor</li>
                         <li>Miércoles 29: Último día IV° Medios</li>
-                        <li>Jueves 30: Caminito IV° Medios</li>
-                        <li>Por definir: Actividad solidaria 8°, Torneo Ajedrez, SIMCE, Exámenes PET y MOVERS.</li>
                     </ul>
                 </div>
-                 <div>
+                 <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">NOVIEMBRE</h3>
-                    <ul class="list-disc">
-                        <li>Miércoles 5: Entrega de planificaciones del curso 2026</li>
+                    <ul class="list-disc pl-5">
                         <li>Sábado 8: Festival de Comidas Internacionales</li>
-                        <li>Jueves 13: Confesiones (alumnos PC)</li>
-                        <li>Viernes 21: Asado de los alumnos de IV° Medio</li>
                         <li>Sábado 22: Primera Comunión</li>
-                        <li>Lunes 24 al miércoles 26: Ceremonias de Fin de Ciclo de Preescolar</li>
                         <li>Jueves 27: Día de la Música</li>
-                        <li>Por definir: Final Ajedrez, Viaje Estudios 8°, Examen FCE.</li>
                     </ul>
                 </div>
-                <div>
+                <div class="bg-indigo-50 p-3 rounded-lg">
                     <h3 class="font-semibold text-indigo-700 mb-2">DICIEMBRE</h3>
-                    <ul class="list-disc">
+                    <ul class="list-disc pl-5">
                         <li>Viernes 5: Graduación IV° Medios</li>
-                        <li>Miércoles 10: Festival Fin de Curso Preescolar / Día del Deporte</li>
-                        <li>Miércoles 17: Término año lectivo / Entrega calificaciones / Festival Fin de Curso Básica y Media</li>
-                        <li>Jueves 18: Subida de planificaciones a Zona Pública</li>
+                        <li>Miércoles 10: Día del Deporte</li>
+                        <li>Miércoles 17: Término del año lectivo</li>
                         <li>Viernes 19: Almuerzo de fin de año</li>
-                        <li>Sábado 20: Celebración de Navidad (hijos de personal)</li>
-                        <li>Por fijar: Examen CAE escrito (III° y IV° Medio)</li>
                     </ul>
                 </div>
             </main>
@@ -807,6 +1083,7 @@
 
     <script>
         let currentScreen = 'login';
+        const checklistStates = {};
 
         function showScreen(screenId) {
             // Hide the current screen
@@ -820,6 +1097,43 @@
             if (nextEl) {
                 nextEl.classList.add('active');
                 currentScreen = screenId;
+            }
+            
+            // Reset and initialize checklist if the new screen has one
+            const checklistContainer = nextEl.querySelector('.checklist-container');
+            if (checklistContainer) {
+                const containerId = checklistContainer.id;
+                checklistStates[containerId] = 0; // Reset index
+                const items = checklistContainer.querySelectorAll('.checklist-item');
+                items.forEach(item => item.classList.remove('visible'));
+                revealNextItem(containerId, true); // Reveal first item automatically
+            }
+        }
+        
+        function toggleFaq(element) {
+            const parentItem = element.closest('.faq-item');
+            parentItem.classList.toggle('open');
+        }
+        
+        function revealNextItem(containerId, isInitial = false) {
+            if (!isInitial) {
+                checklistStates[containerId]++;
+            }
+            
+            const container = document.getElementById(containerId);
+            const items = container.querySelectorAll('.checklist-item');
+            const currentIndex = checklistStates[containerId];
+
+            if (currentIndex < items.length) {
+                items[currentIndex].classList.add('visible');
+            }
+
+            // Hide button if all items are visible
+            const button = container.nextElementSibling;
+            if (currentIndex >= items.length - 1) {
+                button.style.display = 'none';
+            } else {
+                 button.style.display = 'block';
             }
         }
 
