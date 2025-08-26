@@ -342,20 +342,23 @@
                 <button onclick="showScreen('pruebas-bimestrales-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
                 <h2 class="text-xl font-bold text-teal-600">Protocolo Toma de Pruebas</h2>
             </header>
-            <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
-                 <ol class="list-decimal space-y-2 pl-5">
-                    <li><strong>Uso de celulares:</strong> Antes de iniciar, solicitar que los apaguen y guarden en sus mochilas.</li>
-                    <li><strong>Disposición del aula:</strong> Organizar la sala en tres o cuatro filas indias antes de entregar la evaluación.</li>
-                    <li><strong>Supervisión activa:</strong> El docente debe desplazarse constantemente por el aula. No está permitido corregir ni usar el computador.</li>
-                    <li><strong>Entrega de pruebas:</strong> Las evaluaciones se guardan bajo la mesa y se recolectan todas juntas al final.</li>
-                    <li><strong>Conducta tras finalizar:</strong> No se permite uso de celulares, iPads ni conversaciones. Si un alumno va al baño, no podrá retomar la prueba.</li>
-                    <li><strong>Solicitudes para ir al baño:</strong> Actuar con criterio y evitar autorizaciones masivas para mantener el orden.</li>
-                    <li><strong>Duración de la prueba:</strong> Diseñadas para 2 horas. Se puede extender a una 3ra hora si la mayoría no ha terminado o para alumnos con autorización.</li>
-                    <li><strong>Tercera hora de clases:</strong> Si todos terminan, la 3ra hora se realiza con normalidad, sin distracciones.</li>
-                    <li><strong>3° y 4° Medios:</strong> Todos los estudiantes permanecen en la sala, incluso si no rinden la prueba (electivos). Deben estar en silencio y estudiando.</li>
-                    <li><strong>Clases post-prueba:</strong> Las clases posteriores se desarrollan con normalidad para reforzar contenidos.</li>
-                    <li><strong>Resolución de dudas:</strong> No se responden preguntas de contenido. Si hay un posible error, se anota para revisión posterior.</li>
-                </ol>
+            <main class="text-gray-700 space-y-3 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                <div id="checklist-protocolo-toma" class="checklist-container">
+                    <div class="checklist-item"><i data-lucide="smartphone-off" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Uso de celulares:</strong> Antes de iniciar, solicitar que los apaguen y guarden en sus mochilas.</span></div>
+                    <div class="checklist-item"><i data-lucide="layout-grid" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Disposición del aula:</strong> Organizar la sala en tres o cuatro filas indias antes de entregar la evaluación.</span></div>
+                    <div class="checklist-item"><i data-lucide="eye" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Supervisión activa:</strong> El docente debe desplazarse constantemente por el aula. No está permitido corregir ni usar el computador.</span></div>
+                    <div class="checklist-item"><i data-lucide="archive" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Entrega de pruebas:</strong> Las evaluaciones se guardan bajo la mesa y se recolectan todas juntas al final.</span></div>
+                    <div class="checklist-item"><i data-lucide="user-x" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Conducta tras finalizar:</strong> No se permite uso de celulares, iPads ni conversaciones. Si un alumno va al baño, no podrá retomar la prueba.</span></div>
+                    <div class="checklist-item"><i data-lucide="help-circle" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Solicitudes para ir al baño:</strong> Actuar con criterio y evitar autorizaciones masivas para mantener el orden.</span></div>
+                    <div class="checklist-item"><i data-lucide="timer" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Duración de la prueba:</strong> Diseñadas para 2 horas. Se puede extender a una 3ra hora si la mayoría no ha terminado o para alumnos con autorización.</span></div>
+                    <div class="checklist-item"><i data-lucide="clock-3" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Tercera hora de clases:</strong> Si todos terminan, la 3ra hora se realiza con normalidad, sin distracciones.</span></div>
+                    <div class="checklist-item"><i data-lucide="users" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>3° y 4° Medios:</strong> Todos los estudiantes permanecen en la sala, incluso si no rinden la prueba (electivos). Deben estar en silencio y estudiando.</span></div>
+                    <div class="checklist-item"><i data-lucide="book-open-check" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Clases post-prueba:</strong> Las clases posteriores se desarrollan con normalidad para reforzar contenidos.</span></div>
+                    <div class="checklist-item"><i data-lucide="message-square-dashed" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Resolución de dudas:</strong> No se responden preguntas de contenido. Si hay un posible error, se anota para revisión posterior.</span></div>
+                </div>
+                <button onclick="revealNextItem('checklist-protocolo-toma')" class="w-full mt-4 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg">
+                    Siguiente Punto
+                </button>
             </main>
         </div>
 
@@ -365,12 +368,15 @@
                 <button onclick="showScreen('pruebas-bimestrales-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
                 <h2 class="text-xl font-bold text-teal-600">Protocolo de Retroalimentación</h2>
             </header>
-            <main class="text-gray-700 space-y-4 text-sm content-box">
-                <ol class="list-decimal space-y-2 pl-5">
-                    <li><strong>Retroalimentación:</strong> Las pruebas deben reflejar claramente los errores del alumno. El docente debe integrar comentarios que orienten la comprensión del error.</li>
-                    <li><strong>Corrección:</strong> El plazo máximo de corrección es de una semana. Se debe realizar una corrección colectiva en la pizarra y luego los alumnos devuelven la prueba, pudiendo fotografiarla antes.</li>
-                    <li><strong>Calificación:</strong> La escala de exigencia es del 60% para la aprobación (nota 4,0).</li>
-                </ol>
+            <main class="text-gray-700 space-y-3 text-sm content-box">
+                <div id="checklist-protocolo-retro" class="checklist-container">
+                    <div class="checklist-item"><i data-lucide="message-circle" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Retroalimentación:</strong> Integrar comentarios que orienten la comprensión del error.</span></div>
+                    <div class="checklist-item"><i data-lucide="calendar-check" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Corrección:</strong> Plazo máximo de una semana. Realizar corrección colectiva en la pizarra.</span></div>
+                    <div class="checklist-item"><i data-lucide="award" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span><strong>Calificación:</strong> Escala de exigencia del 60% para la aprobación (nota 4,0).</span></div>
+                </div>
+                 <button onclick="revealNextItem('checklist-protocolo-retro')" class="w-full mt-4 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg">
+                    Siguiente Punto
+                </button>
             </main>
         </div>
 
@@ -380,10 +386,16 @@
                 <button onclick="showScreen('pruebas-bimestrales-menu')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
                 <h2 class="text-xl font-bold text-teal-600">Pruebas Recuperativas</h2>
             </header>
-            <main class="text-gray-700 space-y-4 text-sm content-box">
-                <p>Cuando un alumno obtiene una calificación insuficiente (inferior a 4,0), puede acceder a un proceso de recuperación.</p>
-                <p>La prueba recuperativa permitirá obtener una <strong>nota máxima de 4,0</strong>, y la escala de exigencia para aprobar será del <strong>70%</strong>.</p>
-                <p>Si aprueba, la calificación inicial será reemplazada por un 4,0. Si no, se mantendrá la calificación original.</p>
+            <main class="text-gray-700 space-y-3 text-sm content-box">
+                <div id="checklist-pruebas-recuperativas" class="checklist-container">
+                    <div class="checklist-item"><i data-lucide="info" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span>Disponibles para alumnos con calificación inferior a 4,0.</span></div>
+                    <div class="checklist-item"><i data-lucide="target" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span>Permiten obtener una <strong>nota máxima de 4,0</strong>.</span></div>
+                    <div class="checklist-item"><i data-lucide="percent" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span>La escala de exigencia para aprobar es del <strong>70%</strong>.</span></div>
+                    <div class="checklist-item"><i data-lucide="file-check" class="w-5 h-5 mr-3 text-teal-500 shrink-0"></i><span>Si se aprueba, la nota inicial se reemplaza por un 4,0; si no, se mantiene la original.</span></div>
+                </div>
+                <button onclick="revealNextItem('checklist-pruebas-recuperativas')" class="w-full mt-4 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg">
+                    Siguiente Punto
+                </button>
             </main>
         </div>
 
@@ -500,7 +512,7 @@
                 <h2 class="text-xl font-bold text-teal-600">Lista de Curso</h2>
             </header>
             <main class="text-gray-700 space-y-3 text-sm content-box">
-                 <ul class="list-disc space-y-2 pl-5">
+                <ul class="list-disc space-y-2 pl-5">
                     <li>Se debe pasar la lista en <strong>cada hora</strong> de la jornada escolar.</li>
                     <li>La primera lista del día es fundamental y se debe realizar a las <strong>8:32 horas</strong>.</li>
                     <li>En la plataforma se deben marcar los <strong>alumnos ausentes</strong>.</li>
@@ -517,9 +529,60 @@
             <main class="space-y-3">
                 <button onclick="showScreen('historia-trayectoria-content')" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="history" class="w-5 h-5 mr-3"></i>Historia y Trayectoria</button>
                 <a href="https://ibo.org/globalassets/new-structure/about-the-ib/pdfs/learner-profile-es.pdf" target="_blank" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="user" class="w-5 h-5 mr-3"></i>Perfil de Alumno</a>
-                <button class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="network" class="w-5 h-5 mr-3"></i>Malla Curricular</button>
+                <button onclick="showScreen('malla-curricular-content')" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="network" class="w-5 h-5 mr-3"></i>Malla Curricular</button>
                 <button onclick="showScreen('proceso-admision-content')" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="file-input" class="w-5 h-5 mr-3"></i>Proceso de Admisión</button>
                 <button onclick="showScreen('resultados-ib-content')" class="btn-sub w-full text-left p-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg font-medium flex items-center"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3"></i>Resultados</button>
+            </main>
+        </div>
+
+        <div id="malla-curricular-content" class="screen">
+             <header class="flex items-center mb-6">
+                <button onclick="showScreen('bachillerato')" class="p-2 rounded-full hover:bg-gray-200 mr-3"><i data-lucide="arrow-left"></i></button>
+                <h2 class="text-xl font-bold text-emerald-600">Malla Curricular PD</h2>
+            </header>
+            <main class="text-gray-700 space-y-4 text-sm content-box overflow-y-auto max-h-96 pr-2">
+                <div class="bg-emerald-100 text-emerald-800 p-4 rounded-lg text-center font-bold">
+                    Componentes Troncales
+                    <div class="flex justify-around mt-2 text-xs font-normal">
+                        <span>Monografía</span>
+                        <span>Teoría del Conocimiento</span>
+                        <span>CAS</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-emerald-800 mb-2 flex items-center"><i data-lucide="book-marked" class="w-4 h-4 mr-2"></i>G1: Lengua y Literatura</h4>
+                        <p>Español A: Lit. NS</p>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-emerald-800 mb-2 flex items-center"><i data-lucide="languages" class="w-4 h-4 mr-2"></i>G2: Adquisición de Lenguas</h4>
+                        <p>Inglés B NS</p>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-emerald-800 mb-2 flex items-center"><i data-lucide="users" class="w-4 h-4 mr-2"></i>G3: Individuos y Sociedades</h4>
+                        <ul class="list-disc pl-5">
+                            <li>Historia NS/NM</li>
+                            <li>Gestión Empresarial NS/NM</li>
+                            <li>Economía NM</li>
+                        </ul>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-emerald-800 mb-2 flex items-center"><i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i>G4: Ciencias</h4>
+                        <ul class="list-disc pl-5">
+                            <li>Biología NS/NM</li>
+                            <li>Química NS/NM</li>
+                            <li>Física NM</li>
+                        </ul>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-emerald-800 mb-2 flex items-center"><i data-lucide="calculator" class="w-4 h-4 mr-2"></i>G5: Matemáticas</h4>
+                        <p>Matemáticas: Aplicaciones e Interpretación NS/NM</p>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-emerald-800 mb-2 flex items-center"><i data-lucide="palette" class="w-4 h-4 mr-2"></i>G6: Artes</h4>
+                        <p>Artes Visuales NS/NM</p>
+                    </div>
+                </div>
             </main>
         </div>
         
@@ -656,7 +719,7 @@
                 <a href="https://sekchile.com/wp-content/uploads/sites/11/2025/03/Manual-de-convivencia-17-mar-2025.pdf" target="_blank" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="book-marked" class="w-5 h-5 mr-3"></i>Manual de Convivencia</a>
                 <a href="https://drive.google.com/drive/folders/1ZmMb52PHjBJn8afDcVAhviQyy9a6t2PZ?usp=drive_link" target="_blank" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="file-text" class="w-5 h-5 mr-3"></i>Informes de Convivencia</a>
                 <button onclick="showScreen('rol-docente-content')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="user-cog" class="w-5 h-5 mr-3"></i>Rol del Docente</button>
-                <button onclick="showScreen('normativa-menu')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="gavel" class="w-5 h-5 mr-3"></i>Normativa</button>
+                <button onclick="showScreen('normativa-menu')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="gavel" class="w-5 h-5 mr-3"></i>Normativa uso celulares y uniformidad</button>
                 <button onclick="showScreen('preguntas-frecuentes-content')" class="btn-sub w-full text-left p-4 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg font-medium flex items-center"><i data-lucide="help-circle" class="w-5 h-5 mr-3"></i>Preguntas frecuentes</button>
             </main>
         </div>
